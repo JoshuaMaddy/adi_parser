@@ -1,2 +1,2 @@
 from .header import Header
-from .qos_report import QOSReport
+from .qso_report import QSOReport

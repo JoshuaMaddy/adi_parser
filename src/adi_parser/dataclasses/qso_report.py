@@ -1,9 +1,9 @@
 from dataclasses import dataclass
-from datetime import datetime, date
+from datetime import date, datetime
 
 
 @dataclass
-class QOSReport:
+class QSOReport:
     full_report: str = ""
 
     app_lotw_owncall: str | None = None

@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-from ..dataclasses import Header, QOSReport
+from ..dataclasses import Header, QSOReport
 from ..logger import setup_logger
 from .match_header_tag import match_header_tag
 from .match_report_tag import match_report_tag
@@ -17,9 +17,9 @@ EOR_MATCH = re.compile(r"<eor>")
 TAG_MATCH = re.compile(r"^<(.*):(\d*)>(.*)$")
 
 
-def parse_adi(file_path: str | Path) -> tuple[Header, list[QOSReport]]:
+def parse_adi(file_path: str | Path) -> tuple[Header, list[QSOReport]]:
     header = Header()
-    qos_reports: list[QOSReport] = []
+    qso_reports: list[QSOReport] = []
 
     with open(
         file=file_path,
@@ -48,14 +48,14 @@ def parse_adi(file_path: str | Path) -> tuple[Header, list[QOSReport]]:
                 break
 
         while True:
-            qos_report = QOSReport()
+            qso_report = QSOReport()
 
             while True:
                 current_line: str = adif_file.readline()
                 if not current_line:
                     break
 
-                qos_report.full_report += current_line
+                qso_report.full_report += current_line
 
                 tag_match = re.match(pattern=TAG_MATCH, string=current_line)
 
@@ -63,16 +63,16 @@ def parse_adi(file_path: str | Path) -> tuple[Header, list[QOSReport]]:
                     tag_str, length, value = tag_match.groups()
 
                     match_report_tag(
-                        qos_report=qos_report,
+                        qso_report=qso_report,
                         tag_str=tag_str,
                         value=value,
                     )
 
                 if re.match(pattern=EOR_MATCH, string=current_line):
-                    qos_reports.append(qos_report)
+                    qso_reports.append(qso_report)
                     break
 
             if not current_line:
                 break
 
-    return header, qos_reports
+    return header, qso_reports

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "adi_parser"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="Joshua Maddy", email="joshuadcmaddy@gmail.com" },
 ]

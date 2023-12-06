@@ -11,5 +11,5 @@ All dataclass values are assumed to be missing by default.
 ```py
 from adi_parser import parse_adi
 
-adi_header, qos_reports = parse_adi("your_data.adi")
+adi_header, qso_reports = parse_adi("your_data.adi")
 ```
