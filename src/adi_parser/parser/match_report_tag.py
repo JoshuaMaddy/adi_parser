@@ -1,6 +1,8 @@
 import re
 from datetime import datetime
 
+import maidenhead
+
 from ..dataclasses import QOSReport
 from ..logger import setup_logger
 
@@ -29,6 +31,10 @@ def match_report_tag(qos_report: QOSReport, tag_str: str, value: str) -> None:
             qos_report.app_lotw_dxcc_entity_status = value
         case "MY_GRIDSQUARE":
             qos_report.my_gridsquare = value
+            (
+                qos_report.my_latitude,
+                qos_report.my_longitude,
+            ) = maidenhead.to_location(maiden=value, center=True)
         case "MY_STATE":
             qos_report.my_state = value
             qos_report.my_state_human = comment or qos_report.my_state
@@ -79,6 +85,9 @@ def match_report_tag(qos_report: QOSReport, tag_str: str, value: str) -> None:
             qos_report.app_lotw_2xqsl = value
         case "GRIDSQUARE":
             qos_report.gridsquare = value
+            qos_report.latitude, qos_report.longitude = maidenhead.to_location(
+                maiden=value, center=True
+            )
         case "CQZ":
             qos_report.cqz = int(value)
         case "ITUZ":
