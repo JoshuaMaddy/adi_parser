@@ -59,7 +59,8 @@ def match_report_tag(qso_report: QSOReport, tag_str: str, value: str) -> None:
             qso_report.qso_date = int(value)
         case "APP_LoTW_RXQSO":
             qso_report.app_lotw_rxqso = datetime.strptime(
-                value, "%Y-%m-%d %H:%M:%S"
+                value,
+                "%Y-%m-%d %H:%M:%S",
             )
         case "TIME_ON":
             qso_report.time_on = int(value)
@@ -71,7 +72,8 @@ def match_report_tag(qso_report: QSOReport, tag_str: str, value: str) -> None:
             qso_report.qslrdate = datetime.strptime(value, "%Y%m%d").date()
         case "APP_LoTW_RXQSL":
             qso_report.app_lotw_rxqsl = datetime.strptime(
-                value, "%Y-%m-%d %H:%M:%S"
+                value,
+                "%Y-%m-%d %H:%M:%S",
             )
         case "DXCC":
             qso_report.dxcc = int(value)
@@ -86,7 +88,8 @@ def match_report_tag(qso_report: QSOReport, tag_str: str, value: str) -> None:
         case "GRIDSQUARE":
             qso_report.gridsquare = value
             qso_report.latitude, qso_report.longitude = maidenhead.to_location(
-                maiden=value, center=True
+                maiden=value,
+                center=True,
             )
         case "CQZ":
             qso_report.cqz = int(value)
