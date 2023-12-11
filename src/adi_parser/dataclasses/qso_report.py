@@ -57,7 +57,7 @@ class QSOReport:
     station_callsign: str | None = None
 
     # other attrs
-    _cqz = int | None
+    _cqz: int | None = None
 
     @property
     def cqz(self) -> int | None:
