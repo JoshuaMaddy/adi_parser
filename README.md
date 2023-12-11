@@ -5,7 +5,7 @@ from [LoTW](https://lotw.arrl.org/), but now from anywhere.
 
 By default, adi_parser parses [LoTW .adi arguments](#parsing-in-lotw-adi-format). 
 You can optionally parse
-[all arguments as a python dictionary](#parsing-all-values-from-an-adi).
+[all arguments as a python dictionary](#parsing-all-arguments-from-a-adi).
 
 
 ## Examples
