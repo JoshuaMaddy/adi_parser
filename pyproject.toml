@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "adi_parser"
-version = "0.0.5"
+version = "0.1.0"
 authors = [
   { name="Joshua Maddy", email="joshuadcmaddy@gmail.com" },
 ]
-description = "This is a simple utility package to parse .adi files from LoTW."
+description = "This is a simple utility package, originally to parse .adi files from LoTW, but now from anywhere."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
