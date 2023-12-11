@@ -32,22 +32,22 @@ result = parse_adi("path/to/your_data.adi", return_type=dict)
 Where the result dictionary follows this format:
 ```py
 result = {
-    "header":{
+    "header": {
         "full_text": str,
         "argument_1": str,
         "argument_2": str,
         ...
     },
-    "qso_reports" : [
+    "qso_reports": [
         {
             "full_text": str,
-            "argument_1":{
+            "argument_1": {
                 "value": str,
                 "length": int,
                 "type": str | None,
                 "comment": str | None,
             },
-            "argument_2":{
+            "argument_2": {
                 ...
             },
             ...
